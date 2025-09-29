@@ -1,30 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/ai/agents/sysint-hero',          // sem barra
-        destination: '/ai/agents/sysint-hero/',    // com barra
-        permanent: false,
-      },
-    ];
-  },
-
   async rewrites() {
     return [
-      // página e rotas internas com barra final
+      // atende sem barra final
       {
-        source: '/ai/agents/sysint-hero/:path*',
-        destination: 'https://rovo-sysint-hero.vercel.app/:path*',
+        source: "/ai/agents/sysint-hero",
+        destination: "https://rovo-sysint-hero.vercel.app/",
       },
-
-      // (robustez) se alguém acessar sem barra e o browser resolver ./assets como /ai/agents/assets/...
+      // atende tudo abaixo (com barra final e rotas/arquivos)
       {
-        source: '/ai/agents/assets/:path*',
-        destination: 'https://rovo-sysint-hero.vercel.app/assets/:path*',
+        source: "/ai/agents/sysint-hero/:path*",
+        destination: "https://rovo-sysint-hero.vercel.app/:path*",
       },
     ];
   },
+  // garanta que NÃO há trailingSlash: true aqui
 };
 
 module.exports = nextConfig;
