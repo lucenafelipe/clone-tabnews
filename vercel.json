@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/ai/agents/sysint-hero", "destination": "https://rovo-sysint-hero.vercel.app" },
+    { "source": "/ai/agents/sysint-hero/(.*)", "destination": "https://rovo-sysint-hero.vercel.app/$1" }
+  ]
+}
